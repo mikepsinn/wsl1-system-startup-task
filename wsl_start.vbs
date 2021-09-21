@@ -1,5 +1,6 @@
 ' Start services
 
+Dim your_wsl_equivalent_path_to_repo
 your_wsl_equivalent_path_to_repo = "/mnt/c/Development/wsl1-system-startup-task"
 
 Set UAC = CreateObject("Shell.Application")
@@ -12,5 +13,5 @@ WshShell.Run "C:\Windows\System32\bash.exe -c 'sudo service ssh --full-restart'"
 Set WshShell = Nothing
 
 Set WshShell = CreateObject("WScript.Shell")
-WshShell.Run "C:\Windows\System32\bash.exe -c 'cd "+$your_wsl_equivalent_path_to_repo+" && bash wsl_start.sh'",0
+WshShell.Run "C:\Windows\System32\bash.exe -c 'cd " & your_wsl_equivalent_path_to_repo & " && bash wsl_start.sh'",0
 Set WshShell = Nothing
